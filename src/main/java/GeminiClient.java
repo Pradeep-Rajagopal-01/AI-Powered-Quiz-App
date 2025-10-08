@@ -8,8 +8,6 @@ public class GeminiClient {
     String apiKey = "";
     String endPoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey;
 
-    //String question = "Give me a random quiz question and its answer in JSON format. The JSON should have three keys: 'question', 'options', and 'answer'. The 'options' key should have a value of an array of four strings, and the 'answer' key should have a value of a string that is one of the options. Do not include any text before or after the JSON.";
-
     public void sendRequest() throws Exception {
         // Create a JSON string that represents the request payload including your question
         String jsonPayload = "{\n" +
@@ -50,8 +48,8 @@ public class GeminiClient {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         String responseBodyString = response.body();
 
-        System.out.println("Status code: " + response.statusCode());
-        System.out.println("Response: " + response.body());
+//        System.out.println("Status code: " + response.statusCode()); // Coded this for testing purposes not needed anymore. Just prints the API response.
+//        System.out.println("Response: " + response.body());
 
         GeminiResponseParser geminiResponseParser = new GeminiResponseParser();
         geminiResponseParser.parseResponse(responseBodyString);
