@@ -5,7 +5,7 @@ import java.net.http.HttpResponse;
 
 public class GeminiClient {
 
-    String apiKey = "";
+    String apiKey = System.getenv("GEMINI_API_KEY");
     String endPoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey;
 
     public void sendRequest() throws Exception {
